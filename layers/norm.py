@@ -4,11 +4,6 @@
 @contact: sherlockliao01@gmail.com
 """
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import torch
 from torch import nn
 
@@ -31,12 +26,3 @@ class L2Norm(nn.Module):
         x /= norm
         out = self.weight.reshape((1, self.num_channels, 1, 1)) * x
         return out
-
-
-if __name__ == '__main__':
-    l2_layer = L2Norm(30, 1)
-    x = torch.randn(32, 30, 50, 50)
-    y = l2_layer(x)
-    from IPython import embed
-
-    embed()
